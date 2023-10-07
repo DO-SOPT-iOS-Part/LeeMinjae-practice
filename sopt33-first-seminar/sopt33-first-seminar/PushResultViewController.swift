@@ -11,6 +11,7 @@ class PushResultViewController: UIViewController {
     
     // MARK: - Properties
     var delegate: GetDataProtocol?
+    var loginDataCompletion: (([String]) -> Void)? // 스트링 타입의 배열을 매개변수로 전달 할거고, 리턴타입은 void다!
     
     var email: String = ""
     var password: String = ""
@@ -29,10 +30,16 @@ class PushResultViewController: UIViewController {
     
     // MARK: - @IBAction Properties
     @IBAction func backButtonTap(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
         
-        delegate?.getLoginData(email: self.email, 
+        // Delegate 사용
+        delegate?.getLoginData(email: self.email,
                                password: self.password)
+        
+        // Closure 사용
+        guard let loginDataCompletion else { return }
+        loginDataCompletion([self.email, self.password])
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - @Functions

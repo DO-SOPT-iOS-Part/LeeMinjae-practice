@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, GetDataProtocol {
+class ViewController: UIViewController {
     
     // MARK: - Properties
     private var idText: String = ""
@@ -53,10 +53,15 @@ class ViewController: UIViewController, GetDataProtocol {
     // MARK: - @Functions
     func pushToResultVC() {
         guard let pushResultVC = self.storyboard?.instantiateViewController(withIdentifier: "PushResultViewController") as? PushResultViewController else {return}
-
+        
         pushResultVC.setLabelText(id: self.idText,
                                   password: self.passwordText)
+        // Delegate Pattern 사용
         pushResultVC.delegate = self
+        // Closure 사용
+        pushResultVC.loginDataCompletion = { data in
+            print("클로저로 받아온 email : \(data[0]), 클로저로 받아온 password : \(data[1])")
+        }
         self.navigationController?.pushViewController(pushResultVC, animated: true)
     }
     
@@ -67,8 +72,8 @@ class ViewController: UIViewController, GetDataProtocol {
 }
 
 // MARK: - @Extensions
-extension ViewController {
+extension ViewController: GetDataProtocol {
     func getLoginData(email: String, password: String) {
-        print("받아온 email : \(email), 받아온 password : \(password)")
+        print("델리게이트로 받아온 email : \(email), 델리게이트로 받아온 password : \(password)")
     }
 }

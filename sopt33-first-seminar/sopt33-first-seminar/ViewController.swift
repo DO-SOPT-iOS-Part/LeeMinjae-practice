@@ -46,12 +46,14 @@ class ViewController: UIViewController, GetDataProtocol {
         presentToResultVC()
     }
     
+    @IBAction func tapView(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
     
     // MARK: - @Functions
     func pushToResultVC() {
         guard let pushResultVC = self.storyboard?.instantiateViewController(withIdentifier: "PushResultViewController") as? PushResultViewController else {return}
-        // pushResultVC.email = idText
-        // pushResultVC.password = passwordText
+
         pushResultVC.setLabelText(id: self.idText,
                                   password: self.passwordText)
         pushResultVC.delegate = self

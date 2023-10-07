@@ -53,7 +53,7 @@ class ViewController: UIViewController {
     // MARK: - @Functions
     func pushToResultVC() {
         guard let pushResultVC = self.storyboard?.instantiateViewController(withIdentifier: "PushResultViewController") as? PushResultViewController else {return}
-        
+
         pushResultVC.setLabelText(id: self.idText,
                                   password: self.passwordText)
         // Delegate Pattern 사용

@@ -40,6 +40,9 @@ class PushResultViewController: UIViewController {
         loginDataCompletion([self.email, self.password])
         
         self.navigationController?.popViewController(animated: true)
+        
+        delegate?.getLoginData(email: self.email, 
+                               password: self.password)
     }
     
     // MARK: - @Functions

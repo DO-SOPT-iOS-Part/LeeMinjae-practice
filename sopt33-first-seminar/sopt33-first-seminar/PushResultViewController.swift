@@ -31,7 +31,8 @@ class PushResultViewController: UIViewController {
     @IBAction func backButtonTap(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         
-        delegate?.getLoginData(email: self.email, password: self.password)
+        delegate?.getLoginData(email: self.email, 
+                               password: self.password)
     }
     
     // MARK: - @Functions

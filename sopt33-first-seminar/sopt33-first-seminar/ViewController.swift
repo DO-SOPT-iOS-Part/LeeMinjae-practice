@@ -30,13 +30,14 @@ class ViewController: UIViewController {
     }
     
     // MARK: - @IBAction Properties
+    
     @IBAction func idTextFieldDidEditing(_ sender: Any) {
         guard let textField = sender as? UITextField else { return }
         if let idText = textField.text {
             self.idText = idText
         }
     }
-    
+
     @IBAction func pwTextFieldDidEditing(_ sender: Any) {
         guard let textField = sender as? UITextField else { return }
         if let passwordText = textField.text {
@@ -86,7 +87,17 @@ class ViewController: UIViewController {
     
     func setUIComponents() {
         idTextField.placeholder = "아이디를 입력해주세요"
+        idTextField.backgroundColor = .systemGray6
+        idTextField.clearButtonMode = .whileEditing
+
         pwTextField.placeholder = "비밀번호를 입력해주세요"
+        pwTextField.backgroundColor = .systemGray6
+        pwTextField.clearButtonMode = .whileEditing
+        pwTextField.isSecureTextEntry = true
+        
+        loginButton.backgroundColor = .systemGray
+        loginButton.tintColor = .white
+        loginButton.layer.cornerRadius = 10
     }
 }
 

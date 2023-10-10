@@ -30,7 +30,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="idTextFieldDidEditing:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Pg9-Hy-m1K"/>
+                                            <action selector="idTextFieldDidEditing:" destination="BYZ-38-t0r" eventType="editingChanged" id="C8w-q9-RvM"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="meE-to-l1r">
@@ -38,7 +38,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <connections>
-                                            <action selector="pwTextFieldDidEditing:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="y30-Nj-Wc0"/>
+                                            <action selector="pwTextFieldDidEditing:" destination="BYZ-38-t0r" eventType="editingChanged" id="7Eb-39-3Ob"/>
                                         </connections>
                                     </textField>
                                 </subviews>

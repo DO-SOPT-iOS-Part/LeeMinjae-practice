@@ -13,14 +13,20 @@ class ViewController: UIViewController {
     private var idText: String = ""
     private var passwordText: String = ""
     
+    private var isPush: Bool = true
+    
     // MARK: - @IBOutlet Properties
     @IBOutlet weak var loginDescriptionLabel: UILabel!
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var pwTextField: UITextField!
+    @IBOutlet weak var pushPresentSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var loginButton: UIButton!
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        setUIComponents()
     }
     
     // MARK: - @IBAction Properties
@@ -38,12 +44,20 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func loginButtonPushTap(_ sender: Any) {
-        pushToResultVC()
+    @IBAction func segControlChanged(_ sender: Any) {
+        switch pushPresentSegmentedControl.selectedSegmentIndex {
+        case 0: isPush = true
+        case 1: isPush = false
+        default: return
+        }
     }
     
-    @IBAction func loginButtonPresentTap(_ sender: Any) {
-        presentToResultVC()
+    @IBAction func loginButtonTap(_ sender: Any) {
+        if isPush {
+            pushToResultVC()
+        } else {
+            presentToResultVC()
+        }
     }
     
     @IBAction func tapView(_ sender: UITapGestureRecognizer) {
@@ -53,7 +67,7 @@ class ViewController: UIViewController {
     // MARK: - @Functions
     func pushToResultVC() {
         guard let pushResultVC = self.storyboard?.instantiateViewController(withIdentifier: "PushResultViewController") as? PushResultViewController else {return}
-
+        
         pushResultVC.setLabelText(id: self.idText,
                                   password: self.passwordText)
         // Delegate Pattern 사용
@@ -68,6 +82,11 @@ class ViewController: UIViewController {
     func presentToResultVC() {
         guard let presentResultVC = self.storyboard?.instantiateViewController(withIdentifier: "PresentResultViewController") as? PresentResultViewController else {return}
         self.present(presentResultVC, animated: true)
+    }
+    
+    func setUIComponents() {
+        idTextField.placeholder = "아이디를 입력해주세요"
+        pwTextField.placeholder = "비밀번호를 입력해주세요"
     }
 }
 

@@ -17,62 +17,89 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인을 진행해 주세요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTU-lH-4xq">
-                                <rect key="frame" x="50" y="159" width="293" height="21"/>
+                                <rect key="frame" x="50" y="159" width="293" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디를 입력해주세요~" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yhB-rC-30W">
-                                <rect key="frame" x="53" y="216" width="286" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="sBe-uQ-wX8">
+                                <rect key="frame" x="50" y="229.33333333333337" width="293" height="95"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yhB-rC-30W">
+                                        <rect key="frame" x="0.0" y="0.0" width="293" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="idTextFieldDidEditing:" destination="BYZ-38-t0r" eventType="editingChanged" id="C8w-q9-RvM"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="meE-to-l1r">
+                                        <rect key="frame" x="0.0" y="60.999999999999972" width="293" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="pwTextFieldDidEditing:" destination="BYZ-38-t0r" eventType="editingChanged" id="7Eb-39-3Ob"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ji6-fx-Pe8">
+                                <rect key="frame" x="130" y="424.33333333333331" width="133" height="32"/>
+                                <segments>
+                                    <segment title="push"/>
+                                    <segment title="present"/>
+                                </segments>
                                 <connections>
-                                    <action selector="idTextFieldDidEditing:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Pg9-Hy-m1K"/>
+                                    <action selector="segControlChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="DwI-bZ-wGK"/>
                                 </connections>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호를 입력해주세요~" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="meE-to-l1r">
-                                <rect key="frame" x="53" y="277" width="286" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                <connections>
-                                    <action selector="pwTextFieldDidEditing:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="y30-Nj-Wc0"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUo-VY-oHd">
-                                <rect key="frame" x="113" y="373" width="168" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5BG-gX-jC9">
+                                <rect key="frame" x="80" y="485.33333333333331" width="233" height="34.333333333333314"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="안녕 나는 push 버튼!"/>
+                                <buttonConfiguration key="configuration" style="plain" title="다음 화면으로 넘어가는 버튼"/>
                                 <connections>
-                                    <action selector="loginButtonPushTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F5l-3L-yzY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rv-d6-j6m">
-                                <rect key="frame" x="102" y="436" width="189" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="안녕 나는 present 버튼!"/>
-                                <connections>
-                                    <action selector="loginButtonPresentTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6k7-Ws-GQ7"/>
+                                    <action selector="loginButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Uc-hb-OiO"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oTU-lH-4xq" secondAttribute="trailing" constant="50" id="Cbt-KA-Ctc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5BG-gX-jC9" secondAttribute="bottom" constant="298.32999999999998" id="I3m-ga-dvu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ji6-fx-Pe8" secondAttribute="trailing" constant="130" id="ILW-af-ESm"/>
+                            <constraint firstItem="ji6-fx-Pe8" firstAttribute="top" secondItem="sBe-uQ-wX8" secondAttribute="bottom" constant="100" id="Ib6-cp-kLC"/>
                             <constraint firstItem="oTU-lH-4xq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="WaD-6l-8Z4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5BG-gX-jC9" secondAttribute="trailing" constant="80" id="Xlz-P6-ZwH"/>
+                            <constraint firstItem="sBe-uQ-wX8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="bKr-Mr-kop"/>
+                            <constraint firstItem="ji6-fx-Pe8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="130" id="eEO-PU-p7I"/>
+                            <constraint firstItem="sBe-uQ-wX8" firstAttribute="top" secondItem="oTU-lH-4xq" secondAttribute="bottom" constant="50" id="g4O-YH-apS"/>
                             <constraint firstItem="oTU-lH-4xq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="gmx-fs-EiP"/>
+                            <constraint firstItem="5BG-gX-jC9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="o5e-Qv-ua9"/>
+                            <constraint firstItem="5BG-gX-jC9" firstAttribute="top" secondItem="ji6-fx-Pe8" secondAttribute="bottom" constant="30" id="saG-hK-AGT"/>
+                            <constraint firstItem="sBe-uQ-wX8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sh7-nb-1pH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sBe-uQ-wX8" secondAttribute="trailing" constant="50" id="uwC-iv-HhI"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="1VK-XJ-l7d" appends="YES" id="nhj-ci-Per"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="gr9-iV-HJF"/>
                     <connections>
+                        <outlet property="idTextField" destination="yhB-rC-30W" id="F5S-Go-qqd"/>
+                        <outlet property="loginButton" destination="5BG-gX-jC9" id="1cE-pq-wbR"/>
                         <outlet property="loginDescriptionLabel" destination="oTU-lH-4xq" id="CLt-Xc-Kxh"/>
+                        <outlet property="pushPresentSegmentedControl" destination="ji6-fx-Pe8" id="vaq-kU-B0L"/>
+                        <outlet property="pwTextField" destination="meE-to-l1r" id="IkC-mR-0uf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="1VK-XJ-l7d">
+                    <connections>
+                        <action selector="tapView:" destination="BYZ-38-t0r" id="hWP-fX-4I2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="991.60305343511448" y="-28.169014084507044"/>
         </scene>
@@ -84,32 +111,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8R-tq-0mA">
-                                <rect key="frame" x="96" y="481" width="200" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8R-tq-0mA">
+                                <rect key="frame" x="90" y="460.66666666666669" width="213" height="57.333333333333314"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="pop 뒤로가기 버튼입니다!"/>
                                 <connections>
                                     <action selector="backButtonTap:" destination="htt-Db-VQh" eventType="touchUpInside" id="PrQ-vI-H9x"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvj-oL-dEe">
-                                <rect key="frame" x="39" y="212" width="314" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntW-s8-DKH">
-                                <rect key="frame" x="39" y="294" width="314" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="k8N-h7-g9Z">
+                                <rect key="frame" x="20" y="208.99999999999997" width="353" height="101.66666666666666"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvj-oL-dEe">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntW-s8-DKH">
+                                        <rect key="frame" x="0.0" y="81.333333333333314" width="353" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sOc-Cb-rfC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="k8N-h7-g9Z" firstAttribute="leading" secondItem="sOc-Cb-rfC" secondAttribute="leading" constant="20" id="3jl-nQ-Lb1"/>
+                            <constraint firstItem="k8N-h7-g9Z" firstAttribute="top" secondItem="sOc-Cb-rfC" secondAttribute="top" constant="150" id="JV8-J9-DfR"/>
+                            <constraint firstItem="sOc-Cb-rfC" firstAttribute="bottom" secondItem="a8R-tq-0mA" secondAttribute="bottom" constant="300" id="KeZ-Sl-JBO"/>
+                            <constraint firstItem="k8N-h7-g9Z" firstAttribute="centerX" secondItem="sOc-Cb-rfC" secondAttribute="centerX" id="TGe-nf-VLJ"/>
+                            <constraint firstItem="sOc-Cb-rfC" firstAttribute="trailing" secondItem="k8N-h7-g9Z" secondAttribute="trailing" constant="20" id="bxM-zs-uPM"/>
+                            <constraint firstItem="a8R-tq-0mA" firstAttribute="leading" secondItem="sOc-Cb-rfC" secondAttribute="leading" constant="90" id="qif-3a-6kL"/>
+                            <constraint firstItem="a8R-tq-0mA" firstAttribute="top" secondItem="k8N-h7-g9Z" secondAttribute="bottom" constant="150" id="ska-zD-X5e"/>
+                            <constraint firstItem="sOc-Cb-rfC" firstAttribute="trailing" secondItem="a8R-tq-0mA" secondAttribute="trailing" constant="90" id="tvE-YB-Kzv"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="emailLabel" destination="Zvj-oL-dEe" id="maQ-yT-zHE"/>
@@ -128,9 +169,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Dm-4r-g7w">
-                                <rect key="frame" x="83" y="307" width="228" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Dm-4r-g7w">
+                                <rect key="frame" x="80" y="421" width="233" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="dismiss 뒤로가기 버튼입니다!"/>
                                 <connections>
@@ -140,6 +180,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FdM-fu-NU6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FdM-fu-NU6" firstAttribute="trailing" secondItem="1Dm-4r-g7w" secondAttribute="trailing" constant="80" id="D8l-Fm-Jd3"/>
+                            <constraint firstItem="1Dm-4r-g7w" firstAttribute="centerX" secondItem="FdM-fu-NU6" secondAttribute="centerX" id="VRT-09-usB"/>
+                            <constraint firstItem="1Dm-4r-g7w" firstAttribute="centerY" secondItem="FdM-fu-NU6" secondAttribute="centerY" id="oyg-NG-Ihw"/>
+                            <constraint firstItem="1Dm-4r-g7w" firstAttribute="leading" secondItem="FdM-fu-NU6" secondAttribute="leading" constant="80" id="vZ5-LL-wBL"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBI-ld-muv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -167,6 +213,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

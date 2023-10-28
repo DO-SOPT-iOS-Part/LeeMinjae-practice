@@ -37,7 +37,7 @@ class ViewController: UIViewController {
             self.idText = idText
         }
     }
-
+    
     @IBAction func pwTextFieldDidEditing(_ sender: Any) {
         guard let textField = sender as? UITextField else { return }
         if let passwordText = textField.text {
@@ -89,7 +89,7 @@ class ViewController: UIViewController {
         idTextField.placeholder = "아이디를 입력해주세요"
         idTextField.backgroundColor = .systemGray6
         idTextField.clearButtonMode = .whileEditing
-
+        
         pwTextField.placeholder = "비밀번호를 입력해주세요"
         pwTextField.backgroundColor = .systemGray6
         pwTextField.clearButtonMode = .whileEditing
